@@ -1,0 +1,13 @@
+.btn{
+    color: $primaryColor;
+    padding: 5px;
+
+    &_white{
+        background-color: $tertiaryColor;
+    }
+
+    &_rounded{
+        border-radius: 8px;;
+    }
+
+}
