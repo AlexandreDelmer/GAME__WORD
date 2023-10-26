@@ -1,13 +1,18 @@
 .btn{
     color: $primaryColor;
-    padding: 5px;
+    font-weight: bold;
+    font-size: $primaryFontSize;
 
     &_white{
         background-color: $tertiaryColor;
     }
 
-    &_rounded{
+    &_border{
+        border: none;
+
+        &_rounded{
         border-radius: 8px;;
+    }
     }
 
 }
