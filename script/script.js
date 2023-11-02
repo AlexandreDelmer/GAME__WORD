@@ -1,6 +1,6 @@
 // fonction pour afficher la proposition
 
-let choice = "vide"
+let choice = "Vide"
 
 function afficherProposition() {
     let inputChoice = document.querySelectorAll('input[name="option"]')
@@ -9,18 +9,25 @@ function afficherProposition() {
     for( let i = 0; i < inputChoice.length; i++){
         inputChoice[i].addEventListener('click', function () {
             if(inputChoice[i].checked){
-                let choice = inputChoice[i].id
+                choice = inputChoice[i].id
             }
+            
+            if(choice = "mots"){
+                    propositionArea.innerHTML = listeMots[0]
+                } else {
+                    propositionArea.innerHTML = listePhrases[0]
+                }
+
+            console.log(choice)
+            
         })    
     }
 }
 
 afficherProposition()
 
-console.log(choice)
+
 
 // fonction pour afficher le résultat
-
-let score = document.querySelector('.score span')
 
 // fonction global du jeu
