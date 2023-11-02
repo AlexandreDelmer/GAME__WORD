@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Framework</title>
     <link rel="stylesheet" type="text/css" href="sass/main.css">
+    
+    <script src="script/config.js" defer></script>
+    <script src="script/main.js" defer></script>
+    <script src="script/popup.js" defer></script>
+    <script src="script/script.js" defer></script>
+
 </head>
 <body>
     <!-- HEADER -->
@@ -25,13 +31,13 @@
 
             <p>Choisissez votre option et tapez la proposition qui s'affiche dans le champ en-dessous.</p>
 
-            <input type="radio" id="mots" name="mots">
+            <input type="radio" id="mots" name="option" checked>
             <label for="mots">Mots</label>
 
-            <input type="radio" id="phrases" name="phrases">
+            <input type="radio" id="phrases" name="option">
             <label for="phrases">Phrases</label>
 
-            <p class="propositionArea">Cachalot</p>
+            <p class="propositionArea">Proposition</p>
 
             <div class="zoneProposition">
                 <textarea class="zoneProposition__textarea" name="proposition"></textarea>
