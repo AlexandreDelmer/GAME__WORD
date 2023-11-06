@@ -59,15 +59,22 @@ h3{
 
 .zoneProposition{
     display: flex;
-}
 
-.zoneProposition__textarea{
-    border: none;
-    border-radius: 20px;
-    resize: none;
-    width: 100%;
-    margin-right: 10px;
-      
+    &__text{
+        border: none;
+        border-radius: 20px;
+        resize: none;
+        width: 100%;
+        margin-right: 10px;
+        line-height: 1;
+        font-size: $primaryFontSize;
+        font-family: $firstFontFamily;
+        padding: 10px;
+        
+        &:focus{
+            outline: none;
+        }
+    }
 }
 
 .game label{

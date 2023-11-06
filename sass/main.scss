@@ -1,17 +1,17 @@
 //Base
 
 //Utils
-@import 'utils/variables';
-@import 'utils/mixins';
+@import '_utils/_variables';
+@import '_utils/mixins';
 
 //Components
-@import 'components/buttons';
+@import '_components/_buttons';
 
 //Layout
-@import 'layout/footer';
+@import '_layout/_footer';
 
 //Pages
-@import 'pages/home';
+@import '_pages/_home';
 
 //Themes
 

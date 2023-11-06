@@ -12,21 +12,25 @@ function afficherProposition() {
                 choice = inputChoice[i].id
             }
             
-            if(choice = "mots"){
+            if(choice === "mots"){
                     propositionArea.innerHTML = listeMots[0]
                 } else {
                     propositionArea.innerHTML = listePhrases[0]
                 }
-
-            console.log(choice)
             
         })    
     }
 }
 
-afficherProposition()
+function afficherResultat() {
+    let zonePropositionTextarea = document.querySelector('textarea[name=proposition]')
+    let classScore = document.querySelectorS(score)
+    let score = classScore.value
 
+    console.log(score)
+}
 
+afficherResultat()
 
 // fonction pour afficher le résultat
 

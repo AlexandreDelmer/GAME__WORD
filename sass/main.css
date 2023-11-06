@@ -12,6 +12,9 @@
 .btn_border_rounded {
   border-radius: 8px;
 }
+.btn_padding {
+  padding: 0.5rem;
+}
 
 footer {
   background-color: #f68e5f;
@@ -87,13 +90,19 @@ h3 {
 .zoneProposition {
   display: flex;
 }
-
-.zoneProposition__textarea {
+.zoneProposition__text {
   border: none;
   border-radius: 20px;
   resize: none;
   width: 100%;
   margin-right: 10px;
+  line-height: 1;
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+}
+.zoneProposition__text:focus {
+  outline: none;
 }
 
 .game label {
