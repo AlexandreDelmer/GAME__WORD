@@ -31,10 +31,11 @@ function afficherProposition() {
 
 // fonction pour afficher le résultat
 
-function afficherResultat(score, choice) {
-    let scoreClass = document.querySelector('.score')
-    scoreClass.innerHTML = score
+function afficherResultat(score, listeProposition) {
     
+    for (let i = 0; i < listeProposition.length; i++){
+    }
+
 }
 
 // fonction global pour lancer le jeu
