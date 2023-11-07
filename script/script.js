@@ -29,23 +29,21 @@ function afficherProposition() {
 }
 
 
-// fonction pour afficher le résultat
+// fonction pour mettre à jour le resultat
 
-function afficherResultat(score, listeProposition) {
-    
-    for (let i = 0; i < listeProposition.length; i++){
-    }
-
+function afficherResultat(score) {  
+    const scoreDisplay = document.querySelector('.score')
+    scoreDisplay.innerHTML = score
 }
 
 // fonction global pour lancer le jeu
 
 function lancerJeu() {
     let score = 0
-    let choice = "mots"
+
+    afficherResultat(score)
 
     afficherProposition()
 
-    afficherResultat(score, choice)
 
 }

@@ -1,5 +1,15 @@
+// Sélectionnez le champs de saisie
+const zoneProposition = document.querySelector('input[name="proposition')
+const button = document.querySelector('.zoneProposition button')
 
+zoneProposition.addEventListener("keydown", function(event){
+  if (event.key === "Enter"){
+    event.preventDefault()
+    button.click()
+  }
+})
 
+/*
 // Fonction pour changer les propriétés des boutons au click
 // Sélectionnez tous les boutons par leur classe
 const boutons = document.querySelectorAll(".btn")
@@ -14,8 +24,6 @@ boutons.forEach(function(bouton) {
 });
 
 // Fonction pour reset les propriétés des boutons au click
-// Sélectionnez le champs de saisie
-const zoneProposition = document.querySelector('input[name="proposition')
 
 // Ajouter un gestionnaire d'événement au click sur la zone de saisie
 zoneProposition.addEventListener("click", function() {
@@ -28,3 +36,4 @@ boutons.forEach(function(bouton) {
     
 })
 })
+*/
