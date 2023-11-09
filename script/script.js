@@ -14,15 +14,17 @@ function userChoice () {
     return choice
 }
 
-
 // fonction pour afficher la proposition
 function propositionDisplay (choice) {
     let propositionArea = document.querySelector(".propositionArea")
+    let total = document.querySelector(".total")
     
     if(choice === "mots"){
         propositionArea.textContent = listeMots[0]
-    } else {
+        total.innerHTML = listeMots.length
+    } else if(choice === "phrases"){
         propositionArea.textContent = listePhrases[0]
+        total.innerHTML = listePhrases.length
     }
 }
 
@@ -32,8 +34,8 @@ function majPropositionDisplay (choice) {
 }
 
 // fonction pour mettre à jour le resultat
-function afficherResultat(score) {  
-    const scoreDisplay = document.querySelector('.score')
+function resultDisplay(score) {  
+    const scoreDisplay = document.querySelector(".score")
     scoreDisplay.innerHTML = score
 }
 
@@ -43,7 +45,7 @@ function lancerJeu() {
     let score = 0
     let choice = userChoice()
 
-    afficherResultat(score)
+    resultDisplay(score)
 
     propositionDisplay(choice)
     
