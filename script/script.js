@@ -6,7 +6,6 @@
 
 function propositionDisplay(){
     let inputChoice = document.querySelectorAll('input[name="option"')
-    let propositionArea = document.querySelector('.propositionArea')
     let totalScore = document.querySelector('.total')
 
     for(let i = 0; i < inputChoice.length; i++){
@@ -30,7 +29,11 @@ function propositionDisplay(){
     }
 }
 
-// fonction pour mettre à jours l'affichage de la proposition
+// fonction pour incrémenter les propositions et le score
+function propositionIncrementation(){
+    let btnValidation = document.querySelector('.zoneProposition btn')
+    console.log(btnValidation)
+}
 
 // fonction pour mettre à jour le resultat
 function resultDisplay(score) {  
@@ -42,13 +45,13 @@ function resultDisplay(score) {
 
 function lancerJeu() {
     let score = 0
-    let userChoice
+    let propositionArea = document.querySelector('.propositionArea') 
 
     resultDisplay(score)
 
     propositionDisplay()
     
-    console.log(userChoice)
+    propositionIncrementation()
 
 }
 
