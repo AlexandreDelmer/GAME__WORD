@@ -1,5 +1,5 @@
 // Liste des variables utiles dans dans plusieurs fonction
-
+let score = 0
 // Fonction pour obtenir la choix de l'utilisateur
 
 // function pour changer les valeurs de la zone de proposition en fonction de la valeur checked des input radio
@@ -23,16 +23,31 @@ function propositionDisplay(){
                 propositionArea.textContent = listePhrases[0]
                 totalScore.textContent = listePhrases.length
             }
-            
-            return userChoice
         })
     }
 }
 
 // fonction pour incrémenter les propositions et le score
-function propositionIncrementation(){
-    let btnValidation = document.querySelector('.zoneProposition btn')
-    console.log(btnValidation)
+function propositionIncrementation(score){
+    let btnValidation = document.getElementById('btnProposition')
+    score = 0
+    
+    btnValidation.addEventListener('click', () =>{
+        let zonePropositionValue = zoneProposition.value
+
+        // Si la valeur de propositionArea et zoneProposition est identique alors on augmente le score sinon rien de se passe
+        if(propositionArea.textContent === zonePropositionValue){
+            score++
+        }
+
+        // On efface le texte de la balise zoneProposition
+        zoneProposition.value = ""
+
+        // On intègre la valeur suivante du tableau concerer dans propositionArea
+
+        // On met à jour le score
+        resultDisplay(score)
+    })
 }
 
 // fonction pour mettre à jour le resultat
@@ -44,14 +59,12 @@ function resultDisplay(score) {
 // fonction global pour lancer le jeu
 
 function lancerJeu() {
-    let score = 0
-    let propositionArea = document.querySelector('.propositionArea') 
 
     resultDisplay(score)
 
     propositionDisplay()
     
-    propositionIncrementation()
+    propositionIncrementation(score)
 
 }
 

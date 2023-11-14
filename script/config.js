@@ -5,6 +5,7 @@ let listePhrases = ["Poser un lapin", "Bon pied, bon oeil", "Apprendre par coeur
 
 let inputOption = document.querySelectorAll('Input[name=option')
 let propositionArea = document.querySelector('.propositionArea')
+let zoneProposition = document.querySelector('input[name="proposition')
 let total = document.querySelector('.total')
 
 for (let i = 0 ; i < inputOption.length; i++){

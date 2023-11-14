@@ -1,5 +1,4 @@
 // Sélectionnez le champs de saisie
-const zoneProposition = document.querySelector('input[name="proposition')
 const button = document.querySelector('.zoneProposition button')
 
 zoneProposition.addEventListener("keydown", function(event){
