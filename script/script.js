@@ -4,25 +4,32 @@ let score = 0
 
 // function pour changer les valeurs de la zone de proposition en fonction de la valeur checked des input radio
 
-function propositionDisplay(){
+function propositionDisplay(score){
     let inputChoice = document.querySelectorAll('input[name="option"')
     let totalScore = document.querySelector('.total')
 
     for(let i = 0; i < inputChoice.length; i++){
         inputChoice[i].addEventListener('click', () => {
+            score = 0
             let userChoice = ""
 
             if(inputChoice[i].checked){
-            userChoice = inputChoice[i].id
-        }
+                userChoice = inputChoice[i].id
+            }
 
             if(userChoice === "mots"){
                 propositionArea.textContent = listeMots[0]
                 totalScore.textContent = listeMots.length
+                listeProposition = listeMots
+                return listeProposition
             } else if(userChoice === "phrases"){
                 propositionArea.textContent = listePhrases[0]
                 totalScore.textContent = listePhrases.length
+                listeProposition = listePhrases
+                return listeProposition
             }
+
+            resultDisplay(score)
         })
     }
 }
@@ -31,19 +38,20 @@ function propositionDisplay(){
 function propositionIncrementation(score){
     let btnValidation = document.getElementById('btnProposition')
     score = 0
-    
+
     btnValidation.addEventListener('click', () =>{
         let zonePropositionValue = zoneProposition.value
 
         // Si la valeur de propositionArea et zoneProposition est identique alors on augmente le score sinon rien de se passe
-        if(propositionArea.textContent === zonePropositionValue){
+        if(propositionArea.textContent === zonePropositionValue){ 
             score++
         }
 
         // On efface le texte de la balise zoneProposition
         zoneProposition.value = ""
 
-        // On intègre la valeur suivante du tableau concerer dans propositionArea
+        // On intègre la valeur suivante du tableau concerné dans propositionArea
+
 
         // On met à jour le score
         resultDisplay(score)
@@ -59,6 +67,10 @@ function resultDisplay(score) {
 // fonction global pour lancer le jeu
 
 function lancerJeu() {
+
+let listeProposition =""
+listeProposition = propositionDisplay(listeProposition)
+console.log(listeProposition)
 
     resultDisplay(score)
 
