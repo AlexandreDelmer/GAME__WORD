@@ -1,7 +1,8 @@
 // Variables 
 const button = document.querySelector('.zoneProposition button')
 const buttonPartager = document.getElementById('btnPartager')
-let zoneProposition = document.querySelector('input[name="proposition')let inputOption = document.querySelectorAll('Input[name=option')
+let zoneProposition = document.querySelector('input[name="proposition')
+let inputOption = document.querySelectorAll('Input[name=option')
 let propositionArea = document.querySelector('.propositionArea')
 let inputMots = document.getElementById('mots')
 let inputPhrases = document.getElementById('phrases')
