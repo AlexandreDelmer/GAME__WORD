@@ -1,10 +1,53 @@
-
-
-
-/*// Liste des variables utiles dans dans plusieurs fonction
-let score = 0
+// Variables 
+const button = document.querySelector('.zoneProposition button')
+const buttonPartager = document.getElementById('btnPartager')
+let zoneProposition = document.querySelector('input[name="proposition')let inputOption = document.querySelectorAll('Input[name=option')
+let propositionArea = document.querySelector('.propositionArea')
+let inputMots = document.getElementById('mots')
+let inputPhrases = document.getElementById('phrases')
+let total = document.querySelector('.total')
+let scoreClass = document.querySelector('.score')
 let listeProposition = []
+let choice = ""
 
+// Afficher la liste proposition en fonction du checked des inputs "option"
+function userChoice(){
+    if(inputMots.checked){
+        choice = inputMots.id
+    } else if(inputPhrases.checked){
+        choice = inputPhrases.id
+    }
+}
+
+// Modifier résultat
+function displayScore(score){
+    if(zoneProposition.textContent === propositionArea){
+        score++
+    }
+
+    scoreClass.textContent = score
+    console.log(scoreClass.textContent)
+}
+
+
+
+function lancerJeu(){
+    score = 0 
+
+    displayScore(score)
+
+    userChoice()
+
+    if(choice === "mots"){
+        propositionArea.textContent = listeMots[0]
+        total.textContent = listeMots.length
+    } else if (choice === "phrases"){
+        propositionArea.textContent = listePhrases[0]
+        total.textContent = listePhrases.length
+    }
+}
+
+/*
 // Faire en sorte que la valeur par défaut de listeProposition soit en fonction de la valeur checked des input
 
 function valueListeProposition(){
@@ -97,4 +140,4 @@ function lancerJeu() {
     propositionIncrementation(score)
 
 }
-
+*/
