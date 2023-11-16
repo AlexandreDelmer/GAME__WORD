@@ -1,8 +1,24 @@
-// Liste des variables utiles dans dans plusieurs fonction
+
+
+
+/*// Liste des variables utiles dans dans plusieurs fonction
 let score = 0
 let listeProposition = []
 
-// faire en sorte que la valeur par défaut de listeProposition soit en fonction de la valeur checked des input
+// Faire en sorte que la valeur par défaut de listeProposition soit en fonction de la valeur checked des input
+
+function valueListeProposition(){
+    let inputMots = document.getElementById('mots')
+    let inputPhrases = document.getElementById('phrases')
+
+    if(inputMots.checked){
+        listeProposition = listeMots
+    } else if (inputPhrases.checked){
+        listeProposition = listePhrases
+    }
+}
+
+
 // Fonction pour obtenir la choix de l'utilisateur
 
 // function pour changer les valeurs de la zone de proposition en fonction de la valeur checked des input radio
@@ -58,7 +74,7 @@ function propositionIncrementation(score){
         // On intègre la valeur suivante du tableau concerné dans propositionArea
 
         propositionArea.textContent = listeProposition[score]
-        console.log(propositionArea.textContent)
+
     })
 }
 
@@ -71,6 +87,8 @@ function resultDisplay(score) {
 // fonction global pour lancer le jeu
 
 function lancerJeu() {
+
+    valueListeProposition()
 
     resultDisplay(score)
 
