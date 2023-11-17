@@ -1,4 +1,5 @@
 // Sélectionnez le champs de saisie
+let zoneProposition = document.querySelector('input[name="proposition')
 zoneProposition.addEventListener("keydown", function(event){
   if (event.key === "Enter"){
     event.preventDefault()

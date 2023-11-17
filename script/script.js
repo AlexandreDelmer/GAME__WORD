@@ -1,7 +1,6 @@
 // Variables 
 const buttonValider = document.querySelector('.zoneProposition button')
 const buttonPartager = document.getElementById('btnPartager')
-let zoneProposition = document.querySelector('input[name="proposition')
 let inputOption = document.querySelectorAll('Input[name=option')
 let propositionArea = document.querySelector('.propositionArea')
 let inputMots = document.getElementById('mots')
@@ -10,6 +9,7 @@ let total = document.querySelector('.total')
 let scoreClass = document.querySelector('.score')
 let listeProposition = []
 let choice = ""
+let score = 0
 
 // Afficher la liste proposition en fonction du checked des inputs "option"
 function userChoice(){
@@ -21,7 +21,7 @@ function userChoice(){
 }
 
 // Modifier résultat
-function displayScore(score){
+function displayScore(){
     if(zoneProposition.textContent === propositionArea){
         score++
     }
@@ -34,6 +34,8 @@ function displayScore(score){
 function changeProposition(){
     for(let i = 0; i < inputOption.length; i++){
         inputOption[i].addEventListener('click', () => {
+            score = 0
+            displayScore()
             if(inputOption[i].checked){
                 choice = inputOption[i].id
             }
@@ -45,6 +47,7 @@ function changeProposition(){
                 propositionArea.textContent = listePhrases[0]
                 total.textContent = listePhrases.length
             }
+
         })
     }
 }
@@ -52,17 +55,18 @@ function changeProposition(){
 // Function pour valider la proposition
 function validateProposition(){
     buttonValider.addEventListener('click', () => {
-        if(propositionArea.textContent ===  zoneProposition.value)
-        score++
-        zoneProposition.textContent = ""
+        if(propositionArea.textContent ===  zoneProposition.value){
+            score++
+            displayScore(score)
+            zoneProposition.value = ""
+        }
     })
 }
 
 // Function global pour lancer le jeu
 function lancerJeu(){
-    score = 0 
 
-    displayScore(score)
+    displayScore()
 
     userChoice()
 
@@ -74,12 +78,14 @@ function lancerJeu(){
         total.textContent = listePhrases.length
     }
 
-    changeProposition()
-
     validateProposition()
+
+    changeProposition()
 
 
 }
+
+
 
 /*
 // Faire en sorte que la valeur par défaut de listeProposition soit en fonction de la valeur checked des input
