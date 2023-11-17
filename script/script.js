@@ -1,5 +1,5 @@
 // Variables 
-const button = document.querySelector('.zoneProposition button')
+const buttonValider = document.querySelector('.zoneProposition button')
 const buttonPartager = document.getElementById('btnPartager')
 let zoneProposition = document.querySelector('input[name="proposition')
 let inputOption = document.querySelectorAll('Input[name=option')
@@ -27,11 +27,38 @@ function displayScore(score){
     }
 
     scoreClass.textContent = score
-    console.log(scoreClass.textContent)
 }
 
 
+// Function pour changer la propositionArea en fonction du checked
+function changeProposition(){
+    for(let i = 0; i < inputOption.length; i++){
+        inputOption[i].addEventListener('click', () => {
+            if(inputOption[i].checked){
+                choice = inputOption[i].id
+            }
 
+            if(choice === "mots"){
+                propositionArea.textContent = listeMots[0]
+                total.textContent = listeMots.length
+            } else if (choice === "phrases"){
+                propositionArea.textContent = listePhrases[0]
+                total.textContent = listePhrases.length
+            }
+        })
+    }
+}
+
+// Function pour valider la proposition
+function validateProposition(){
+    buttonValider.addEventListener('click', () => {
+        if(propositionArea.textContent ===  zoneProposition.value)
+        score++
+        zoneProposition.textContent = ""
+    })
+}
+
+// Function global pour lancer le jeu
 function lancerJeu(){
     score = 0 
 
@@ -46,6 +73,12 @@ function lancerJeu(){
         propositionArea.textContent = listePhrases[0]
         total.textContent = listePhrases.length
     }
+
+    changeProposition()
+
+    validateProposition()
+
+
 }
 
 /*
