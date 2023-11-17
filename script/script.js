@@ -15,8 +15,10 @@ let score = 0
 function userChoice(){
     if(inputMots.checked){
         choice = inputMots.id
+        listeProposition = listeMots
     } else if(inputPhrases.checked){
         choice = inputPhrases.id
+        listeProposition = listePhrases
     }
 }
 
@@ -25,7 +27,6 @@ function displayScore(){
     if(zoneProposition.textContent === propositionArea){
         score++
     }
-
     scoreClass.textContent = score
 }
 
@@ -43,24 +44,25 @@ function changeProposition(){
             if(choice === "mots"){
                 propositionArea.textContent = listeMots[0]
                 total.textContent = listeMots.length
+                listeProposition = listeMots
             } else if (choice === "phrases"){
                 propositionArea.textContent = listePhrases[0]
                 total.textContent = listePhrases.length
+                listeProposition = listePhrases
             }
-
         })
     }
 }
 
-// Function pour valider la proposition
+// Function pour valider la proposition et augmenter le score si zoneProposition correcte
 function validateProposition(){
-    buttonValider.addEventListener('click', () => {
-        if(propositionArea.textContent ===  zoneProposition.value){
-            score++
-            displayScore(score)
-            zoneProposition.value = ""
-        }
-    })
+        buttonValider.addEventListener('click', () => {
+            if(propositionArea.textContent ===  zoneProposition.value){
+                score++
+                displayScore(score)
+                zoneProposition.value = ""
+            }
+        })    
 }
 
 // Function global pour lancer le jeu
@@ -73,15 +75,16 @@ function lancerJeu(){
     if(choice === "mots"){
         propositionArea.textContent = listeMots[0]
         total.textContent = listeMots.length
+        listeProposition = listeMots
     } else if (choice === "phrases"){
         propositionArea.textContent = listePhrases[0]
         total.textContent = listePhrases.length
+        listeProposition = listePhrases
     }
 
     validateProposition()
 
     changeProposition()
-
 
 }
 
