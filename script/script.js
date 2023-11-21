@@ -11,6 +11,8 @@ let listeProposition = []
 let choice = ""
 let score = 0
 
+let gameFinish = false
+
 // Afficher la liste proposition en fonction du checked des inputs "option"
 function userChoice(){
     if(inputMots.checked){
@@ -35,6 +37,7 @@ function displayScore(){
 function changeProposition(){
     for(let i = 0; i < inputOption.length; i++){
         inputOption[i].addEventListener('click', () => {
+            gameFinish = false
             score = 0
             displayScore()
             if(inputOption[i].checked){
@@ -62,6 +65,18 @@ function validateProposition(){
                 displayScore(score)
                 zoneProposition.value = ""
             }
+
+         
+            let positionProposition = listeProposition.indexOf(propositionArea.textContent)
+
+            if(positionProposition < listeProposition.length -1 && !gameFinish ){
+                positionProposition ++
+                propositionArea.textContent = listeProposition[positionProposition]
+            } else {
+                gameFinish = true
+                propositionArea.textContent = "Le jeu est terminé"
+            }
+            
         })    
 }
 
@@ -85,6 +100,8 @@ function lancerJeu(){
     validateProposition()
 
     changeProposition()
+    
+
 
 }
 
