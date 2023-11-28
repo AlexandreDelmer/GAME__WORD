@@ -1,17 +1,43 @@
 .popup{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: $primaryColor;
-    padding: 20px;
+    padding: 1rem  2.5rem 1rem 2.5rem;
+    position: absolute;
     z-index: 2;
+    font-family: $firstFontFamily;
 
     &_borderRounded{
         border-radius: 15px;
     }
+
+    &__title{
+        font-size: $secondaryFontSize;
+        color: $tertiaryColor;
+        font-weight: bold;
+    }
+
+    &__input{
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 20px;
+        resize: none;
+        width: 100%;
+        line-height: 1;
+        font-size: $primaryFontSize;
+        font-family: $firstFontFamily;
+        padding: 10px;
+
+        &:focus{
+            outline: none;
+        }
+    }
 }
 
 .overlay {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
