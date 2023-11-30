@@ -51,6 +51,10 @@ footer p {
   position: absolute;
   z-index: 2;
   font-family: "Roboto", sans-serif;
+  /* voir comment utilsier le .active en css avec le toggleAttribute en js
+  &.active{
+      display: flex;
+  }*/
 }
 .popup_borderRounded {
   border-radius: 15px;
