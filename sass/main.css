@@ -42,7 +42,7 @@ footer p {
 }
 
 .popup {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -80,7 +80,7 @@ footer p {
 }
 
 .overlay {
-  display: flex;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;

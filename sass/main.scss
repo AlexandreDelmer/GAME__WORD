@@ -2,14 +2,14 @@
 
 //Utils
 @import '_utils/_variables';
-@import '_utils/mixins';
+@import '_utils/_mixins';
 
 //Components
 @import '_components/_buttons';
 
 //Layout
 @import '_layout/_footer';
-@import '_layout/popup';
+@import '_layout/_popup';
 
 //Pages
 @import '_pages/_home';
