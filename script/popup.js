@@ -24,6 +24,7 @@ window.addEventListener('click', function(event){
     }
 }) 
 
+// Function pour ouvrir la messagerie avec un email prérempli au click sur le bouton Envoyer
 let btnEnvoyer = document.getElementById("btnEnvoyer")
 
 function sendEmail() {
@@ -37,4 +38,15 @@ function sendEmail() {
 }
 
 sendEmail ()
+
+// Function pour valider les input
+function validateInput() {
+        const regex = /^[A-Z][a-z\-]{0,19}$/
+        let nom = document.getElementById("nom").value
+
+        if(!regex.test(nom)){
+                
+        }
+}
+
 

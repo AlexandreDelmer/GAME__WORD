@@ -1,0 +1,203 @@
+.btn {
+  font-weight: bold;
+  font-size: 17px;
+}
+.btn_primaryFontColor {
+  color: #f76c5e;
+}
+.btn_animationFontColor {
+  color: black;
+}
+.btn_tertiaryColorBackground {
+  background-color: #ffeee6;
+}
+.btn_animationBackgroundColor {
+  background-color: grey;
+}
+.btn_border {
+  border: none;
+}
+.btn_border_rounded {
+  border-radius: 8px;
+}
+.btn_padding {
+  padding: 0.5rem;
+}
+.btn_shadow {
+  -webkit-box-shadow: 0px 0px 7px 2px;
+          box-shadow: 0px 0px 7px 2px;
+}
+.btn:hover {
+  color: #ffeee6;
+  background-color: #f76c5e;
+}
+
+footer {
+  background-color: #f68e5f;
+  text-align: center;
+  color: #ffeee6;
+  padding: 20px;
+}
+footer p {
+  font-weight: bold;
+}
+
+.popup {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f76c5e;
+  padding: 1rem 2.5rem 1rem 2.5rem;
+  position: absolute;
+  z-index: 2;
+  font-family: "Roboto", sans-serif;
+  /* voir comment utilsier le .active en css avec le toggleAttribute en js
+  &.active{
+      display: flex;
+  }*/
+}
+.popup_borderRounded {
+  border-radius: 15px;
+}
+.popup__title {
+  font-size: 30px;
+  color: #ffeee6;
+  font-weight: bold;
+}
+.popup__input {
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 20px;
+  resize: none;
+  width: 100%;
+  line-height: 1;
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+}
+.popup__input:focus {
+  outline: none;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1; /* Valeur z-index plus basse */
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 40px;
+}
+
+p {
+  font-size: 17px;
+}
+
+h1 {
+  font-size: 60px;
+  color: #f76c5e;
+  margin: 0;
+}
+
+h2 {
+  font-size: 30px;
+  color: #f68e5f;
+  font-weight: bold;
+  margin: 0;
+}
+
+h3 {
+  font-size: 17px;
+  color: #f68e5f;
+  font-weight: normal;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.game {
+  text-align: center;
+  background-color: #f68e5f;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  padding: 30px;
+  color: #ffeee6;
+}
+
+.propositionArea {
+  color: #f68e5f;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #ffeee6;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.zoneProposition {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.zoneProposition__text {
+  border: none;
+  border-radius: 20px;
+  resize: none;
+  width: 100%;
+  margin-right: 10px;
+  line-height: 1;
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+}
+.zoneProposition__text:focus {
+  outline: none;
+}
+
+.game label {
+  font-size: 17px;
+}/*# sourceMappingURL=main.css.map */
