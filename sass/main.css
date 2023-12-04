@@ -42,7 +42,7 @@ footer p {
 }
 
 .popup {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -51,10 +51,6 @@ footer p {
   position: absolute;
   z-index: 2;
   font-family: "Roboto", sans-serif;
-  /* voir comment utilsier le .active en css avec le toggleAttribute en js
-  &.active{
-      display: flex;
-  }*/
 }
 .popup_borderRounded {
   border-radius: 15px;
@@ -174,6 +170,4 @@ h3 {
 
 .game label {
   font-size: 17px;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

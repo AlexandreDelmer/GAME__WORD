@@ -1,5 +1,5 @@
 .popup{
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -8,11 +8,6 @@
     position: absolute;
     z-index: 2;
     font-family: $firstFontFamily;
-
-    /* voir comment utilsier le .active en css avec le toggleAttribute en js
-    &.active{
-        display: flex;
-    }*/
 
     &_borderRounded{
         border-radius: 15px;

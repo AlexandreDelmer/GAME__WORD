@@ -4,26 +4,37 @@ let popupActive = false
 let btnPartager = document.getElementById("btnPartager")
 
 
-for(let i = 0; i<2; i++){
 // Active la popup au click sur le bouton partager
 btnPartager.addEventListener('click', () => {
+    if(!popupActive){
         popup.style.display = "flex"
         overlay.style.display = "flex"
         popupActive = true
-        console.log(popupActive)
     }
-)
+})
 
 // Désactivation de la popup au click en dehors de celle-ci
-if(popupActive){
 window.addEventListener('click', function(event){
-        if(!popup.contains(event.target)){
+    if(popupActive){
+        if(!popup.contains(event.target) && event.target !== btnPartager){
             popup.style.display = "none"
             overlay.style.display = "none"
             popupActive = false
-            console.log(popupActive)
         }
     }
-)   
+}) 
+
+let btnEnvoyer = document.getElementById("btnEnvoyer")
+
+function sendEmail() {
+    btnEnvoyer.addEventListener('click', () => {
+        let nom = document.getElementById("nom").value
+        let prenom = document.getElementById("prenom").value
+        let email = document.getElementById("email").value
+        
+        console.log(nom, prenom, email)
+    })
 }
-}
+
+sendEmail ()
+
