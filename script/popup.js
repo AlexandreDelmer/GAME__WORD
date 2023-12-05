@@ -2,6 +2,9 @@ let popup = document.querySelector('.popup')
 let overlay = document.querySelector('.overlay')
 let popupActive = false
 let btnPartager = document.getElementById("btnPartager")
+let nom = document.getElementById("nom")
+let prenom = document.getElementById("prenom")
+let email = document.getElementById("email")
 
 
 // Active la popup au click sur le bouton partager
@@ -10,14 +13,12 @@ btnPartager.addEventListener('click', () => {
         popup.style.display = "flex"
         overlay.style.display = "flex"
         popupActive = true
+        nom.focus()
     }
 })
 
 // Désactivation de la popup au click en dehors de celle-ci
 window.addEventListener('click', function(event){
-    let nom = document.getElementById("nom")
-    nom.focus()
-
     if(popupActive){
         if(!popup.contains(event.target) && event.target !== btnPartager){
             popup.style.display = "none"
@@ -30,27 +31,19 @@ window.addEventListener('click', function(event){
 // Function pour ouvrir la messagerie avec un email prérempli au click sur le bouton Envoyer
 let btnEnvoyer = document.getElementById("btnEnvoyer")
 
-function sendEmail() {
-    const regex = /^[A-Z][a-z\-]{0,19}$/
+const regex = /^[A-Z][a-z\-]{0,19}$/
+let prenomValue = prenom.value
+let emailValue = email.value
 
-    btnEnvoyer.addEventListener('click', () => {
-        let nomValue = document.getElementById("nom").value
-        let prenomValue = document.getElementById("prenom").value
-        let emailValue = document.getElementById("email").value
+nom.addEventListener('focusout', 'keydown', () =>{
+    let nomValue = nom.value
+    if(!regex.test(nomValue)){
+        nom.classList.add('popup__clignotant__animation')
 
-        let nom = document.getElementById("nom")
-        let prenom = document.getElementById("prenom")
-        let email = document.getElementById("email")
+        setTimeout(function (){
+            nom.classList.remove('popup__clignotant__animation');
+        },  4000)
+    } 
+})
 
-        if(!regex.test(nomValue)){
-            nom.classList.add('popup__clignotant__animation')
-
-            setTimeout(function (){
-                nom.classList.remove('popup__clignotant__animation');
-            },  4000)
-        }
-    })
-}
-
-sendEmail ()
 
