@@ -38,6 +38,8 @@ function validateInput(input, regex){
 
     if(!regex.test(inputValue)){
         console.log("Validation échouée")
+
+        // Trouver pourquoi le clignotement ne s'effectue pas correctement au changer de focus
         input.classList.add('popup__clignotant__animation')
 
         setTimeout(function (){
@@ -67,10 +69,25 @@ btnEnvoyer.addEventListener('click', () => {
     let isPrenomValide = validateInput(prenom, regex)
     let isEmailvalide = validateInput(email, regexEmail)
 
+    let emailValue = email.value
+    let nomValue = nom.value
+    let prenomValue = prenom.value
+
+    let score = document.querySelector('.score').value
+    let total = document.querySelector('.total').value
+
     if(isNomValide && isPrenomValide && isEmailvalide){
         console.log("OK")
     } else {
         console.log("Un des inputs contient une erreur")
     }
+    
+    // Générez l'URL mailto avec l'adresse e-mail
+    var mailtoURL = 'mailto:' + encodeURIComponent(emailValue) +
+                    '?subject=' + encodeURIComponent('Votre résultat au jeu AzerType') +
+                    '&body=' + encodeURIComponent('Bonjour ' + prenomValue + '' + nomValue + ' , vous avez obtenu un score de ' + score +' sur ' + total +'.')
+
+    // Ouvrez la messagerie avec l'adresse e-mail préremplie
+    window.location.href = mailtoURL
 })
 
