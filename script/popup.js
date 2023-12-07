@@ -7,6 +7,9 @@ let nom = document.getElementById("nom")
 let prenom = document.getElementById("prenom")
 let email = document.getElementById("email")
 let inputPopup = document.querySelectorAll('.popup input')
+let inputNomValide = document.getElementById("inputNomValide")
+let inputPrenomValide = document.getElementById("inputPrenomValide")
+let inputEmailValide = document.getElementById("inputEmailValide")
 const regex = /^[A-Z][a-z\-]{0,19}$/
 const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
 
@@ -33,36 +36,33 @@ window.addEventListener('click', function(event){
 }) 
 
 // Function pour valider un input 
-function validateInput(input, regex){
+function validateInput(input, regex, id){
     let inputValue = input.value
 
     if(!regex.test(inputValue)){
         console.log("Validation échouée")
 
-        // Créer une une deuxième popup qui s'affichera pour expliquer les critères de validation des inputs en cas d'erreur
-        // Trouver pourquoi le clignotement ne s'effectue pas correctement au changer de focus
-        input.classList.add('popup__clignotant__animation')
-
-        setTimeout(function (){
-            input.classList.remove('popup__clignotant__animation');
-        },  4000);
+        // Modifier !!! Quand c'est faux on met la classe popup__input__wrong
+        id.style.display = "flex"
 
         return false
     }
+
+    // créer un if si c'est vrai on met la class popup__input__valide
 
     return true
 }
 
 nom.addEventListener('blur', () =>{
-    validateInput(nom, regex)
+    validateInput(nom, regex, inputNomValide)
 })
 
 prenom.addEventListener('blur', () =>{
-    validateInput(prenom, regex)
+    validateInput(prenom, regex, inputPrenomValide)
 })
 
 email.addEventListener('blur', () =>{
-    validateInput(email, regexEmail)
+    validateInput(email, regexEmail, inputEmailValide)
 })
 
 btnEnvoyer.addEventListener('click', () => {
