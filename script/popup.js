@@ -39,6 +39,7 @@ function validateInput(input, regex){
     if(!regex.test(inputValue)){
         console.log("Validation échouée")
 
+        // Créer une une deuxième popup qui s'affichera pour expliquer les critères de validation des inputs en cas d'erreur
         // Trouver pourquoi le clignotement ne s'effectue pas correctement au changer de focus
         input.classList.add('popup__clignotant__animation')
 
@@ -73,21 +74,28 @@ btnEnvoyer.addEventListener('click', () => {
     let nomValue = nom.value
     let prenomValue = prenom.value
 
-    let score = document.querySelector('.score').value
-    let total = document.querySelector('.total').value
+    let score = document.querySelector('.score').textContent
+    let total = document.querySelector('.total').textContent
 
     if(isNomValide && isPrenomValide && isEmailvalide){
-        console.log("OK")
+        // Générez l'URL mailto avec l'adresse e-mail
+        var mailtoURL = 'mailto:' + encodeURIComponent(emailValue) +
+                        '?subject=' + encodeURIComponent('Votre résultat au jeu AzerType') +
+                        '&body=' + encodeURIComponent('Bonjour ' + prenomValue + '' + nomValue + ' , vous avez obtenu un score de ' + score +' sur ' + total +'.')
+
+        // Ouvrez la messagerie avec l'adresse e-mail préremplie
+        window.location.href = mailtoURL
+
+        nom.value = ""
+        prenom.value = ""
+        email.value = ""
+
+        popup.style.display = "none"
+        overlay.style.display = "none"
+        popupActive = false
+
     } else {
         console.log("Un des inputs contient une erreur")
     }
-    
-    // Générez l'URL mailto avec l'adresse e-mail
-    var mailtoURL = 'mailto:' + encodeURIComponent(emailValue) +
-                    '?subject=' + encodeURIComponent('Votre résultat au jeu AzerType') +
-                    '&body=' + encodeURIComponent('Bonjour ' + prenomValue + '' + nomValue + ' , vous avez obtenu un score de ' + score +' sur ' + total +'.')
-
-    // Ouvrez la messagerie avec l'adresse e-mail préremplie
-    window.location.href = mailtoURL
 })
 
