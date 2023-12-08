@@ -53,6 +53,7 @@ function validateInput(input, regex, id){
     return true
 }
 
+// Modifier pour vérifier au 'change'
 nom.addEventListener('blur', () =>{
     validateInput(nom, regex, inputNomValide)
 })
