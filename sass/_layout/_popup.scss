@@ -36,12 +36,12 @@
         }
 
         &__valide{
-            display: none;
+            display: flex;
             color: green;
         }
 
         &__wrong{
-            display: none;
+            display: flex;
             color: red;
         }
 
