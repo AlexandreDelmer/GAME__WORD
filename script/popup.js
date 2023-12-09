@@ -15,42 +15,58 @@ const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
 
 
 // Active la popup au click sur le bouton partager
-btnPartager.addEventListener('click', () => {
+btnPartager.addEventListener('click', (event) => {
+    event.stopPropagation()
     if(!popupActive){
         popup.style.display = "flex"
         overlay.style.display = "flex"
         popupActive = true
         nom.focus()
+        console.log(1)
     }
 })
+
 
 // Désactivation de la popup au click en dehors de celle-ci
 window.addEventListener('click', function(event){
     if(popupActive){
-        if(!popup.contains(event.target) && event.target !== btnPartager){
+        if(!popup.contains(event.target)){
             popup.style.display = "none"
             overlay.style.display = "none"
             popupActive = false
         }
+
+        console.log(2)
     }
-}) 
+})
+
 
 // Function pour valider un input 
 function validateInput(input, regex, id){
     let inputValue = input.value
-
-    if(!regex.test(inputValue)){
+    
+    if(popupActive){
+    if(!regex.test(inputValue) || inputValue == ""){
         console.log("Validation échouée")
 
-        // Modifier !!! Quand c'est faux on met la classe popup__input__wrong
-        id.style.display = "flex"
+        if(id.classList.contains("popup__input__valide")){
+            id.classList.remove("popup__input__valide")
+        }
 
+        id.classList.add("popup__input__wrong")
         return false
+
+    } else {
+        console.log("Validé")
+
+        if(id.classList.contains("popup__input__wrong")){
+            id.classList.remove("popup__input__wrong")
+        }
+
+        id.classList.add("popup__input__valide")
+        return true
     }
-
-    // créer un if si c'est vrai on met la class popup__input__valide
-
-    return true
+    }
 }
 
 // Modifier pour vérifier au 'change'
@@ -67,9 +83,11 @@ email.addEventListener('blur', () =>{
 })
 
 btnEnvoyer.addEventListener('click', () => {
-    let isNomValide = validateInput(nom, regex)
-    let isPrenomValide = validateInput(prenom, regex)
-    let isEmailvalide = validateInput(email, regexEmail)
+    let isNomValide = validateInput(nom, regex, inputNomValide)
+    let isPrenomValide = validateInput(prenom, regex, inputPrenomValide)
+    let isEmailvalide = validateInput(email, regexEmail, inputEmailValide)
+
+    console.log(isNomValide, isPrenomValide, isEmailvalide)
 
     let emailValue = email.value
     let nomValue = nom.value
@@ -78,11 +96,11 @@ btnEnvoyer.addEventListener('click', () => {
     let score = document.querySelector('.score').textContent
     let total = document.querySelector('.total').textContent
 
-    if(isNomValide && isPrenomValide && isEmailvalide){
+    if(isNomValide || isPrenomValide || isEmailvalide){
         // Générez l'URL mailto avec l'adresse e-mail
         var mailtoURL = 'mailto:' + encodeURIComponent(emailValue) +
                         '?subject=' + encodeURIComponent('Votre résultat au jeu AzerType') +
-                        '&body=' + encodeURIComponent('Bonjour ' + prenomValue + '' + nomValue + ' , vous avez obtenu un score de ' + score +' sur ' + total +'.')
+                        '&body=' + encodeURIComponent('Bonjour ' + prenomValue + ' ' + nomValue + ', vous avez obtenu un score de ' + score +' sur ' + total +'.')
 
         // Ouvrez la messagerie avec l'adresse e-mail préremplie
         window.location.href = mailtoURL
@@ -99,4 +117,3 @@ btnEnvoyer.addEventListener('click', () => {
         console.log("Un des inputs contient une erreur")
     }
 })
-
